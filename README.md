@@ -46,8 +46,8 @@ public class PrivateKeyReader {
       new PKCS8EncodedKeySpec(keyBytes);
     KeyFactory kf = KeyFactory.getInstance("RSA");
     return kf.generatePrivate(spec);
-  }
-}
+     }
+     }
 And now, to read in the public key:
 
 import java.io.*;
@@ -70,8 +70,10 @@ public class PublicKeyReader {
       new X509EncodedKeySpec(keyBytes);
     KeyFactory kf = KeyFactory.getInstance("RSA");
     return kf.generatePublic(spec);
-  }
-}
+     }
+    }
+
+
 That's about it. The hard part was figuring out a compatible set of:
 
 openssl DER output options (particularly the PKCS#8 encoding)
